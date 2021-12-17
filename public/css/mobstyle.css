@@ -1,0 +1,151 @@
+#drawer-toggle {
+    position: absolute;
+    opacity: 0;
+}
+
+#drawer-toggle-label {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    left: 0px;
+    height: 50px;
+    width: 50px;
+    display: block;
+    position: fixed;
+    margin-top: 1%;
+    background: rgba(255, 255, 255, 0);
+    z-index: 1;
+    transition: all 0.5s ease-out
+}
+
+/* adds our "hamburger" menu icon */
+
+#drawer-toggle-label:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 24px;
+    background: #ffffff;
+    left: 13px;
+    top: 18px;
+    box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff;
+    transition: all 0.5s ease-out
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    background: #0a58ca;
+    padding: 10px 10px 10px 50px;
+    font-size: 1.2rem;
+    line-height: 35px;
+    z-index: 0;
+    border-radius: 0px 0px 8px 8px;
+    transition: all 0.5s ease-out
+}
+
+header span {
+    margin-left: 100%;
+    padding-top: 10%;
+    color: white;
+}
+
+/* drawer menu pane - note the 0px width */
+
+#drawer {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 250px;
+    background: #2f2f2f;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 20px;
+    -webkit-overflow-scrolling: touch;
+    transition: all 0.5s ease-out
+}
+
+/* actual page content pane */
+
+#page-content {
+    margin-left: 0px;
+    margin-top: 50px;
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px;
+}
+
+/* checked styles (menu open state) */
+
+#drawer-toggle:checked ~ #drawer-toggle-label {
+    height: 100%;
+    width: calc(100% - 250px);
+    /* background: rgba(255, 255, 255, 0.8); */
+    background: rgba(255, 255, 255, 0);
+}
+
+#drawer-toggle:checked ~ #drawer-toggle-label,
+#drawer-toggle:checked ~ header {
+    left: 250px;
+}
+
+#drawer-toggle:checked ~ #drawer {
+    left: 0px;
+}
+
+#drawer-toggle:checked ~ #page-content {
+    margin-left: 250px;
+}
+
+/* Menu item styles */
+
+#drawer ul {
+    list-style-type: none;
+}
+
+#drawer ul a {
+    display: block;
+    padding: 10px;
+    color: #c7c7c7;
+    text-decoration: none;
+}
+
+#drawer ul a:hover {
+    color: white;
+}
+
+/* Responsive MQ */
+
+@media all and (max-width: 350px) {
+    #drawer-toggle:checked ~ #drawer-toggle-label {
+        height: 100%;
+        width: 50px;
+    }
+
+    #drawer-toggle:checked ~ #drawer-toggle-label,
+    #drawer-toggle:checked ~ header {
+        left: calc(100% - 50px);
+    }
+
+    #drawer-toggle:checked ~ #drawer {
+        width: calc(100% - 50px);
+        padding: 20px;
+    }
+
+    #drawer-toggle:checked ~ #page-content {
+        margin-left: calc(100% - 50px);
+    }
+}
+
+/* mobile footer end */
+
+/* bottom navigation end */
